@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLASSyCAN - 粵講粵識 | 第一課：飲茶文化互動學習平台</title>
+  <meta name="description" content="沉浸式、互動型的廣東話與香港文化學習平台：透過茶樓探索、生活對話、粵拼發音與點心紙互動，輕鬆學會道地香港粵語。">
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/components.css">
+</head>
+
+<body class="show-jyutping" data-unit-src="src/data/unit1.json">
+
+  <div class="app-container">
+
+    <!-- Top Navigation Bar -->
+    <header class="top-navbar" id="top-navbar">
+      <div class="brand-section">
+        <button class="mobile-menu-btn" id="btn-mobile-menu" aria-label="打開課程目錄" title="課程選單">☰</button>
+        <div class="brand-title">粵講粵識</div>
+        <span class="brand-badge">CLASSyCAN</span>
+        <div class="nav-divider"></div>
+        <div class="lesson-breadcrumb">
+          <span>第一課</span>
+          <span>|</span>
+          <span class="theme-tag">茶樓 飲茶文化</span>
+        </div>
+      </div>
+
+      <div class="top-controls">
+        <div class="control-pill-group">
+          <button class="control-pill-btn" id="btn-toggle-trad" title="繁簡中文切換">繁 / 簡</button>
+          <button class="control-pill-btn" id="btn-toggle-subtitles" title="字幕開關">字幕</button>
+          <button class="control-pill-btn active" id="btn-toggle-jyutping" title="Visual Fonts 粵拼顯示切換">Aa 粵拼</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <!-- Main Workspace -->
+    <main class="main-workspace" id="main-workspace">
+
+      <!-- Left Course Modules Sidebar -->
+      <aside class="course-sidebar" id="course-sidebar">
+        <div class="sidebar-header">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:4px;">
+            <h1 class="unit-main-title" id="unit-main-title">今日去飲茶</h1>
+            <button class="modal-close-btn sidebar-close-btn" id="btn-sidebar-close" style="display:none;"
+              aria-label="關閉選單">✕</button>
+          </div>
+          <p class="unit-subtitle" id="unit-subtitle">探索香港茶樓，學習文化、詞彙與實用句式</p>
+
+          <div class="progress-container">
+            <div class="progress-label-row">
+              <span>學習進度</span>
+              <span class="progress-number" id="progress-text">1 / 4</span>
+            </div>
+            <div class="progress-track" id="progress-track">
+              <div class="step-node active" id="step-1"></div>
+              <div class="step-node" id="step-2"></div>
+              <div class="step-node" id="step-3"></div>
+              <div class="step-node" id="step-4"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modules list dynamically populated by main.js from src/data/unit1.json -->
+        <nav class="modules-nav" id="modules-nav">
+          <!-- Fallback Initial Markup while unit1.json loads -->
+          <div class="module-card active" id="card-mod-1">
+            <div class="module-icon-box">🫖</div>
+            <div class="module-text-info">
+              <div class="module-idx">Module 1</div>
+              <div class="module-heading">入茶樓：茶樓文化</div>
+            </div>
+            <span class="module-status-badge in-progress">探索中</span>
+          </div>
+
+          <div class="module-card" id="card-mod-2">
+            <div class="module-icon-box">🪑</div>
+            <div class="module-text-info">
+              <div class="module-idx">Module 2</div>
+              <div class="module-heading">搵位坐：茶樓座位與茶葉</div>
+            </div>
+            <span class="module-status-badge locked">🔒</span>
+          </div>
+
+          <div class="module-card" id="card-mod-3">
+            <div class="module-icon-box">🥟</div>
+            <div class="module-text-info">
+              <div class="module-idx">Module 3</div>
+              <div class="module-heading">開餐喇：點心與醬料</div>
+            </div>
+            <span class="module-status-badge locked">🔒</span>
+          </div>
+
+          <div class="module-card" id="card-mod-4">
+            <div class="module-icon-box">📋</div>
+            <div class="module-text-info">
+              <div class="module-idx">Module 4</div>
+              <div class="module-heading">點幾多？：粵語量詞與點心紙</div>
+            </div>
+            <span class="module-status-badge locked">🔒</span>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Center Stage: Interactive Teahouse Exploration Canvas -->
+      <section class="scene-canvas-container" id="scene-canvas-container" aria-label="茶樓探索全景">
+        <div class="scene-image-wrapper">
+          <img src="public/unit1/image/T1茶樓背景圖.jpg" alt="蓮香樓茶樓全景" class="scene-bg-img" id="scene-bg-img">
+          <div class="scene-overlay-dim"></div>
+
+          <!-- Hybrid SVG Vector Interaction Layer (exact 574x360 coordinate space matching lin4hoeng1lau4_scene.jpg) -->
+          <svg class="scene-svg-overlay" id="scene-svg-overlay" viewBox="0 0 574 360"
+            preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="svg-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            <!-- Dynamic SVG Hotspot Elements rendered by main.js from unit1.json -->
+            <g id="svg-hotspots-container"></g>
+          </svg>
+
+          <!-- Dynamic Hotspots HTML Layer (for accessible fallback / tooltips) -->
+          <div id="scene-hotspots-layer"></div>
+        </div>
+
+        <!-- Floating Learning Card / Mobile Bottom Sheet -->
+        <div class="floating-learning-card" id="floating-learning-card" style="display: none;">
+          <div class="sheet-drag-handle" style="display:none;"></div>
+          <div class="learning-card-header">
+            <div class="learning-card-title-group">
+              <h2 class="learning-card-title" id="card-title">斟茶與叩手禮</h2>
+              <span class="learning-card-badge" id="card-badge">社交禮儀</span>
+            </div>
+            <button class="learning-card-close" id="card-close-btn" title="關閉卡片">✕</button>
+          </div>
+
+          <div class="learning-card-content">
+            <img src="public/unit1/image/菊花茶-T1-Act1-茶葉-gukfaacaa.png" alt="學習卡示意圖" class="card-illustration" id="card-img">
+            <div class="card-body-text" id="card-text">
+              載入中...
+            </div>
+          </div>
+
+          <div class="learning-card-actions">
+            <button class="card-btn primary" id="card-listen-btn">
+              <span>🔊 聽粵語</span>
+            </button>
+            <button class="card-btn" id="card-jyutping-btn">
+              <span>Aa 顯示粵拼</span>
+            </button>
+            <button class="card-btn" id="card-knowledge-btn">
+              <span>📖 語言知識</span>
+            </button>
+          </div>
+
+          <button class="btn-complete" id="card-complete-btn">
+            完成探索
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Action & Status Bar -->
+    <footer class="bottom-bar" id="bottom-bar">
+      <div class="bottom-left-tools">
+        <button class="tool-btn" id="btn-course-map">
+          <span>📖</span> 返回課程地圖
+        </button>
+        <button class="tool-btn" id="btn-hint">
+          <span>💡</span> 提示
+        </button>
+        <button class="tool-btn" id="btn-knowledge-list">
+          <span>📋</span> 知識清單
+        </button>
+      </div>
+
+      <div class="bottom-center-status">
+        <span>☕ 尚有 <strong id="remaining-counter" style="color:var(--c-amber-gold); font-size:16px;">4</strong>
+          個知識點</span>
+        <div class="status-dots" id="status-dots"></div>
+      </div>
+
+      <div class="bottom-right-action">
+        <button class="btn-next-step" id="btn-next-step">
+          <span>下一步</span> ➔
+        </button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Big Cultural & Story Modal Overlay -->
+  <div class="modal-overlay" id="knowledge-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size:22px;">🍵</span>
+          <h3 class="modal-title" id="modal-title">知識詳情</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Content dynamically injected by main.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: Audio & Quiz utilities, dynamic unit1.json data layer, then main application -->
+  <script src="src/js/audio.js"></script>
+  <script src="src/js/quiz.js"></script>
+  <script src="src/js/data.js"></script>
+  <script src="src/js/main.js"></script>
+</body>
+
+</html>

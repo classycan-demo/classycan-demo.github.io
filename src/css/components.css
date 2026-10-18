@@ -1,0 +1,391 @@
+/* ==========================================================================
+   CLASSyCAN Interactive Components & Modal Views
+   ========================================================================== */
+
+/* Big Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 19, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  width: 780px;
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 80px);
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--c-border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.modal-header {
+  padding: 18px 24px;
+  background: var(--c-surface-card-subtle);
+  border-bottom: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--c-text-primary);
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: var(--c-text-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+.modal-close-btn:hover {
+  background: rgba(0,0,0,0.06);
+  color: var(--c-text-primary);
+}
+
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  line-height: 1.8;
+  font-size: 15px;
+  color: var(--c-text-primary);
+}
+
+/* Story Reader Typography & Paragraphs */
+.story-paragraph {
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 2;
+  font-family: var(--font-canto-active);
+}
+
+.translation-box {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: #f4efe6;
+  border-left: 4px solid var(--c-amber-gold);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--c-text-secondary);
+  line-height: 1.6;
+}
+
+/* Audio Player Widget */
+.audio-player-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--c-amber-light);
+  border: 1px solid #fae8cb;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.audio-play-btn {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--c-primary);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: var(--transition-smooth);
+}
+.audio-play-btn:hover {
+  background: var(--c-primary-light);
+  box-shadow: 0 2px 8px rgba(27, 77, 62, 0.25);
+}
+
+.audio-info-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-secondary);
+}
+
+/* ==========================================================================
+   Dim Sum & Tea Tasting Grid (Module 3)
+   ========================================================================== */
+.tasting-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.tasting-card {
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+.tasting-card:hover {
+  border-color: var(--c-amber-gold);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.tasting-thumb-box {
+  width: 100%;
+  height: 150px;
+  background: #faf6f0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tasting-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.tasting-card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.tasting-food-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--c-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.tasting-jyutping-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-primary);
+  background: rgba(27, 77, 62, 0.08);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.quiz-input-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.jyutping-quiz-input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+.jyutping-quiz-input:focus {
+  border-color: var(--c-amber-gold);
+  box-shadow: 0 0 0 2px var(--c-amber-glow);
+}
+.jyutping-quiz-input.correct {
+  border-color: #2e7d32;
+  background-color: #f1f8e9;
+  color: #2e7d32;
+}
+.jyutping-quiz-input.wrong {
+  border-color: #c62828;
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.quiz-check-btn {
+  background: var(--c-primary);
+  color: #ffffff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: var(--transition-smooth);
+}
+.quiz-check-btn:hover {
+  background: var(--c-primary-light);
+}
+
+/* ==========================================================================
+   Ordering Paper & Classifier Matching (Module 4)
+   ========================================================================== */
+.dimsum-paper-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.paper-toggle-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.dimsum-paper-img-frame {
+  max-width: 100%;
+  max-height: 520px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.dimsum-paper-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Measure Words Matching Exercise */
+.matching-game-container {
+  margin-top: 24px;
+  background: var(--c-surface-card-subtle);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.matching-pairs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.matching-item-chip {
+  padding: 10px 14px;
+  background: #ffffff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+}
+.matching-item-chip:hover {
+  border-color: var(--c-amber-gold);
+  background: var(--c-amber-light);
+}
+.matching-item-chip.selected {
+  border-color: var(--c-primary);
+  background: #e8f3ef;
+  color: var(--c-primary-dark);
+}
+.matching-item-chip.matched {
+  border-color: #2e7d32;
+  background: #e8f5e9;
+  color: #2e7d32;
+  pointer-events: none;
+}
+
+/* Mobile & Tablet Modal Optimizations */
+@media (max-width: 680px) {
+  .modal-dialog {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+  }
+
+  .modal-header {
+    padding: 12px 16px;
+  }
+
+  .modal-body {
+    padding: 16px;
+  }
+
+  .tasting-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .audio-player-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .audio-player-bar .card-btn {
+    width: 100%;
+  }
+
+  .matching-pairs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
