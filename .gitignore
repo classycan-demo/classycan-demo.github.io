@@ -1,47 +1,16 @@
-# Python & Virtual Environments
 .venv/
 venv/
-ENV/
-env/
-env.bak/
-venv.bak/
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-.pytest_cache/
 
-# Presentations, Raw Office Documents & Extracted Media
 *.pptx
 *.ppt
 *.xlsx
 *.xls
-docs/extracted_pptx_media/
+docs/
 
-# Operating System files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-[Dd]esktop.ini
-
-# Node & Build artifacts (if applicable)
-node_modules/
-dist/
-build/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Environment and secrets
 .env
 .env*.local
 *.pem
 
-# Scratch & Temporary files
 scratch/
 *.tmp
 *.temp
